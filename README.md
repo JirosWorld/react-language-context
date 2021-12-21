@@ -1,4 +1,4 @@
-# Opdrachtbeschrijving
+# Opdracht - door Jiro
 
 ## Inleiding
 Bob en Betsy hebben een website over planten en willen deze graag in zowel Spaans als Nederlands aanbieden. De gebruiker moet door het vlag-icoontje op de website van taal kunnen wisselen.
@@ -38,3 +38,24 @@ Op basis van die taal-property krijg je een Nerlandse of Spaanse tekst. Probeer 
 * Maak een context-provider component. Deze gebruikt state om de taal en de taal-setter functie in bij te houden.
 * Gebruik het context-provider component en wrap deze om alle componenten heen die context nodig hebben
 * Zorg dat alle pagina's die context weergeven, toegang hebben tot de data die in de context is geplaatst.
+
+## Stappenplan
+
+**Benodigdheden**:
+
+* Context(`LanguageContext`)
+* in die context beschikbaar: de geselecteerde taal ("NL / "ES")
+* in cont. beschikbaar: taal-verander functie (`toggleLanguage`) zodat we in Header kunnen wisselen
+
+1. `LanguageContext` maken (individueel bestand) en export
+2. `LanguageContext` importeren in `App.js` - doet nog niets na importeren
+3. Gebruiken van `LanguageContext.provider` en wikkelen dit als component om alle componenten heen in App.js
+4. testen of provider werkt met Log maar ook meteen data er in zetten: Via de `value` property een data object in de context plaatsen (`const data = { test: "test"}`) 
+5. dat kan alleen door die context in een ander component te gebruiken; kies een pagina en abonneer die op`LanguageContext`
+   * importeer `LanguageContext`
+   * `useContext` functie importeren uit React en aan roepen in `LanguageContext`
+   * destructure de propert uit het dataobject dat we nodig hebben, in dit geval de `test` property
+   * toegang is niet voldoende, om het kunnen worden laten zien: gebruik de data die in `test` staat in het component: <p>{test}</p> (en/of console loggen)
+6. Werkt dit? Zo ja dan verder
+7. Maak op de plek waar je dataobject staat een stukje State aan voor `setLanguage` o.i.d. zodat je geen letterlijke data erin zet maar alleen de state
+8. 
