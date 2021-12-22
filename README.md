@@ -57,5 +57,57 @@ Op basis van die taal-property krijg je een Nerlandse of Spaanse tekst. Probeer 
    * destructure de propert uit het dataobject dat we nodig hebben, in dit geval de `test` property
    * toegang is niet voldoende, om het kunnen worden laten zien: gebruik de data die in `test` staat in het component: <p>{test}</p> (en/of console loggen)
 6. Werkt dit? Zo ja dan verder
-7. Maak op de plek waar je dataobject staat een stukje State aan voor `setLanguage` o.i.d. zodat je geen letterlijke data erin zet maar alleen de state
-8. 
+7. Maak op de plek waar je dataobject staat (wordt later `App.js`) een stukje State aan voor `setLanguage/toggleLanguage` o.i.d. zodat je geen letterlijke data erin zet maar alleen de state
+8. Maak daar een aparte functie die bij aanroep (dmv de toggleLanguage functie) de taal op NL zet (nog steeds in App.js) 
+9. Maak daar een aparte functie die bij aanroep (dmv de toggleLanguage functie) de taal op ES zet (nog niet in de Context component want die nog niet gemaakt dus <Counter.Provider> bestaat nog steeds zo)
+10. Stop de 2 functies en de waarden v `language` in dat dataobject
+
+```javascript
+const [language, toggleLanguage] = useState('nl');
+
+function setNl() {
+   toggleLanguage('nl');
+}
+function setEs() {
+   toggleLanguage('es');
+}
+
+const data = {
+    activeLanguage: language,
+   setNlFunction: setNl,
+   setEsFunction: setEs,
+}
+```
+
+11. (nu eerst checken of het wel werkt want alleen in cotext zetten is niet genoeg) Test of je de actieve taal vanuit pagina ui de context kunt halen en kunt loggen zoals stap 5 inclusief importeren.
+12. dan op ieder pagina juisge content weergeven
+13. zorg ervoor dat je met knopje on header van taal kunt wisselen, een andere vlag weergeven = onClick functie
+14. maak dán pas het LanguageContextProvider **jasje**, dus 
+* kopieer hele `function App.js ` uit App.js en plak dit in het context bestand en 
+* verander de naam v d functie App naar `LanguageContextProvider` met {children}.
+* Exporteer deze functie
+* Wikkel het nieuwe LanguageContextProvider compnent om het <App/> compon. in index.js
+
+
+BananaSecurity:
+
+# Stappenplan 1e Banana opdracht maken
+1. Mapje maken voor de context in de `src` folder
+2. Bestandje maken met `AuthContext.js`
+3. In de `AuthContext.js` gaan we twee dingen dingen doen:
+   1. De daadwerkelijke `AuthContext` maken en die exporteren én
+      `export const AuthContext = createContext({})`
+   2. Het custom-ContextProvider component maken (als functie) en die als default exporteren. Vergeet hierbij niet dat
+      dit component een `children` property nodig heeft! Wat je returned is het `.Provider`-component dat nu op
+      de `AuthContext` beschikbaar is (zie slide 34)
+```javascript
+function AuthContextProvider() {
+  return (<vul zelf in>)
+    }
+    export default AuthContextProvider;
+```
+4. Wikkel ons custom-provider component om de `<App />` heen (in `index.js`)
+5. Maak data-object in het custom-provider component en stop er wat zelfbedachte data in
+6. Geef de data mee aan de context doormiddel van de `value`-property (slide 36)
+7. Test vervolgens of het werkt, door in één van de componenten van de applicatie gebruik te maken van de context en
+   deze te loggen in de console! (slide 40)
