@@ -33,7 +33,7 @@ ziet de gebruiker 'Wissel taal naar [nederlandse vlag]'. Staat de taal op 'Neder
 
 ## Plan de campagne
 * Ieder component of pagina die tekst gebruikt, importeert het content JSON bestand. Daarin staan zowel de keys "nl" als "es", maar de onderliggende object properties zijn exact hetzelfde.
-Op basis van die taal-property krijg je een Nerlandse of Spaanse tekst. Probeer het maar eens! Hier ga je tussen wisselen op basis van de taal die via context wordt ingesteld.
+Op basis van die taal-property krijg je een Nederlandse of Spaanse tekst. Probeer het maar eens! Hier ga je tussen wisselen op basis van de taal die via context wordt ingesteld.
 * Maak eerst een aparte file om jouw context in te maken. Geef jouw context een descriptieve naam.
 * Maak een context-provider component. Deze gebruikt state om de taal en de taal-setter functie in bij te houden.
 * Gebruik het context-provider component en wrap deze om alle componenten heen die context nodig hebben
@@ -45,7 +45,7 @@ Op basis van die taal-property krijg je een Nerlandse of Spaanse tekst. Probeer 
 
 * Context(`LanguageContext`)
 * in die context beschikbaar: de geselecteerde taal ("NL / "ES")
-* in cont. beschikbaar: taal-verander functie (`toggleLanguage`) zodat we in Header kunnen wisselen
+* in context beschikbaar: taal-verander functie (`toggleLanguage`) zodat we in Header kunnen wisselen
 
 1. `LanguageContext` maken (individueel bestand) en export
 2. `LanguageContext` importeren in `App.js` - doet nog niets na importeren
@@ -54,7 +54,7 @@ Op basis van die taal-property krijg je een Nerlandse of Spaanse tekst. Probeer 
 5. dat kan alleen door die context in een ander component te gebruiken; kies een pagina en abonneer die op`LanguageContext`
    * importeer `LanguageContext`
    * `useContext` functie importeren uit React en aan roepen in `LanguageContext`
-   * destructure de propert uit het dataobject dat we nodig hebben, in dit geval de `test` property
+   * destructure de property uit het dataobject dat we nodig hebben, in dit geval de `test` property
    * toegang is niet voldoende, om het kunnen worden laten zien: gebruik de data die in `test` staat in het component: <p>{test}</p> (en/of console loggen)
 6. Werkt dit? Zo ja dan verder
 7. Maak op de plek waar je dataobject staat (wordt later `App.js`) een stukje State aan voor `setLanguage/toggleLanguage` o.i.d. zodat je geen letterlijke data erin zet maar alleen de state
@@ -79,8 +79,8 @@ const data = {
 }
 ```
 
-11. (nu eerst checken of het wel werkt want alleen in cotext zetten is niet genoeg) Test of je de actieve taal vanuit pagina ui de context kunt halen en kunt loggen zoals stap 5 inclusief importeren.
-12. dan op ieder pagina juisge content weergeven
+11. (nu eerst checken of het wel werkt want alleen in context zetten is niet genoeg) Test of je 'de actieve taal' vanuit een pagina uit de context kunt halen en kunt loggen zoals stap 5 inclusief importeren.
+12. dan op iedere pagina juiste content weergeven
 13. zorg ervoor dat je met knopje on header van taal kunt wisselen, een andere vlag weergeven = onClick functie
 14. maak dán pas het LanguageContextProvider **jasje**, dus 
 * kopieer hele `function App.js ` uit App.js en plak dit in het context bestand en 

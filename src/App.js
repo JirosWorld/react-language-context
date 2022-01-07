@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,7 @@ import AboutUs from './pages/aboutUs/AboutUs';
 import AllPlants from './pages/allPlants/AllPlants';
 
 function App() {
+
   return (
     <Router>
         <Header />
